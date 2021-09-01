@@ -1,5 +1,11 @@
-function logger(req, res, next) {
-  // DO YOUR MAGIC
+const express = require('express');
+
+const server = express();
+
+function logger(req, res, next){
+  console.log('this is happening')
+  console.log(`it is a ${req.method} request!`)
+  next()
 }
 
 function validateUserId(req, res, next) {
@@ -15,3 +21,4 @@ function validatePost(req, res, next) {
 }
 
 // do not forget to expose these functions to other modules
+server.use(logger)
